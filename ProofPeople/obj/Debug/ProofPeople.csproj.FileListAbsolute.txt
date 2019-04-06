@@ -1,0 +1,10 @@
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\bin\Debug\ProofPeople.exe.config
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\bin\Debug\ProofPeople.exe
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\bin\Debug\ProofPeople.pdb
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.csprojAssemblyReference.cache
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.Form1.resources
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.Properties.Resources.resources
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.csproj.GenerateResource.cache
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.csproj.CoreCompileInputs.cache
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.exe
+C:\Users\Diego\source\repos\ProofPeople\ProofPeople\obj\Debug\ProofPeople.pdb
