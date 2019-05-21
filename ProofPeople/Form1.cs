@@ -22,7 +22,7 @@ namespace ProofPeople
         //private String sql;
 
         OleDbConnection objConn;
-        String connection = String.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\temp\empleados.xlsx;Extended Properties='Excel 12.0 Xml;HDR=YES;'");
+        String connection = String.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\temp\baseDeDatos.xlsx;Extended Properties='Excel 12.0 Xml;HDR=YES;'");
 
         public Form1()
         {
@@ -66,9 +66,13 @@ namespace ProofPeople
                 txtEmail.Text = "";
                 txtPhone.Text = "";
                 cbxCasado.SelectedIndex = -1;
+                cbxCasado.Text = "";
                 cbxChilLess16.SelectedIndex = -1;
+                cbxChilLess16.Text = "";
                 cbxChilGre16.SelectedIndex = -1;
-            }catch(Exception ex)
+                cbxChilGre16.Text = "";
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Cannot clean the form , Error:" + ex.ToString());
             }
@@ -82,7 +86,8 @@ namespace ProofPeople
                 {
                     limpiarFormulario();
                     llenarFormulario();
-                    MessageBox.Show("Register saved.");
+                    MessageBox.Show("Register Saved Correctly.");
+                    txtFirstName.Focus();
                 }
             }
             else
@@ -109,6 +114,10 @@ namespace ProofPeople
                 {
                     casado = cbxCasado.SelectedItem.ToString();
                 }
+                else if (cbxCasado.Text != "")
+                {
+                    casado = cbxCasado.Text.Trim();
+                }
                 else
                 {
                     casado = "null";
@@ -118,15 +127,24 @@ namespace ProofPeople
                 {
                     menores = cbxChilLess16.SelectedItem.ToString();
                 }
+                else if (cbxChilLess16.Text != "")
+                {
+                    menores = cbxChilLess16.Text.Trim();
+                }
                 else
                 {
                     menores = "null";
                 }
 
-                if(cbxChilGre16.SelectedIndex != -1)
+                if (cbxChilGre16.SelectedIndex != -1)
                 {
                     mayores = cbxChilGre16.SelectedItem.ToString();
-                }else
+                }
+                else if (cbxChilGre16.Text != "")
+                {
+                    mayores = cbxChilGre16.Text.Trim();
+                }
+                else
                 {
                     mayores = "null";
                 }
@@ -151,9 +169,10 @@ namespace ProofPeople
 
                 objCmdInsert.CommandText = sql;
                 objCmdInsert.ExecuteNonQuery();
-                objConn.Close();                
+                objConn.Close();
 
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 flag = false;
                 MessageBox.Show("Cannot insert new person, " + e.ToString(), "Error");
@@ -172,22 +191,22 @@ namespace ProofPeople
         {
             bool flag = true;
 
-            if(txtFirstName.Text == null || txtFirstName.Text == "")
+            if (txtFirstName.Text == null || txtFirstName.Text == "")
             {
                 flag = false;
             }
 
-            if(txtLastName.Text == null || txtLastName.Text == "")
+            if (txtLastName.Text == null || txtLastName.Text == "")
             {
                 flag = false;
             }
 
-            if(txtEmail.Text == null || txtEmail.Text == "")
+            if (txtEmail.Text == null || txtEmail.Text == "")
             {
                 flag = false;
             }
 
-            if(txtPhone.Text == null || txtPhone.Text == "")
+            if (txtPhone.Text == null || txtPhone.Text == "")
             {
                 flag = false;
             }
@@ -198,6 +217,8 @@ namespace ProofPeople
         private void Form1_Load(object sender, EventArgs e)
         {
             llenarFormulario();
+            cbxCasado.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtFirstName.Focus();
         }
 
         private void llenarFormulario()
@@ -211,7 +232,7 @@ namespace ProofPeople
                                                                 "email, " +
                                                                 "menores_16, " +
                                                                 "mayores_16 " +
-                                                          "FROM [empleadostbl$]", objConn);
+                                                          "FROM [empleadostbl$] ", objConn);
             //objCmdSelect.CommandText = "";
             objConn.Open();
 
